@@ -145,12 +145,6 @@ void Simplex::PrintSimplexTable() {
 		}
 		std::cout << std::endl;
 	}
-
-	/*std::cout << "S.D.\t";
-	for (auto& simplexDivision : m_simplexDivisions) {
-		std::cout << (simplexDivision.IsMin() ? "-" : simplexDivision.ToString()) << "\t";
-	}
-	std::cout << std::endl;*/
 }
 //-----------------------------------------------------------------------------------
 void Simplex::FunctionExpressing() {
@@ -172,7 +166,6 @@ void Simplex::FunctionExpressing() {
 
 	for (auto& it : m_jordanGauss.GetBasicVariables()) {
 		for (auto& freeVariable : it.second) {
-			//m_expressedFunction[freeVariable.first] += freeVariable.second * (freeVariable.first == 0 ? Fraction::SimpleFraction() : m_function[it.first]);
 			m_expressedFunction[freeVariable.first] += freeVariable.second * m_function[it.first];
 		}
 	}
@@ -242,14 +235,6 @@ void Simplex::FindResolvingElement(std::string& row, int& column) {
 	}
 
 	if (row == "") return;
-
-	/*row = std::min_element
-	(
-		m_simplexTable.begin(), 
-		--m_simplexTable.end(),
-		[&](pairType& p1, pairType& p2) { return p1.second[0] < p2.second[0]; }
-	)->first;*/
-	//&& 1 < std::count_if(p1.second.begin(), p1.second.end(), [&](Fraction::SimpleFraction fr) {return fr < Fraction::SimpleFraction(0, 1); });
 
 	auto maxElem = Fraction::SimpleFraction(LLONG_MIN, 1);
 	for (int i = 1; i < m_simplexTable["z"].size(); i++) {

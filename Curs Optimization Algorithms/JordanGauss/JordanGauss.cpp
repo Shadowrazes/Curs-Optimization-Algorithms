@@ -1,4 +1,4 @@
-#include "JordanGauss.h"
+﻿#include "JordanGauss.h"
 
 namespace LinearEquations {
 //-----------------------------------------------------------------------------------
@@ -240,7 +240,7 @@ void JordanGauss::PrintMatrix(FractionMatrix& matrix) {
 	}
 	std::cout << std::endl;
 }
-//-----------------------------------------------------------------------------------
+//----------------------------------------------------------------------------------- 
 void JordanGauss::FindBasicSolutions() {
 	FractionMatrix originalMatrix = m_matrix;
 	Process(m_matrix);

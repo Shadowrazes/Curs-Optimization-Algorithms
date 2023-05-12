@@ -18,7 +18,6 @@
 
 typedef std::vector<std::vector<Fraction::SimpleFraction>> FractionMatrix;
 
-// Xi = Xj * коэф
 typedef std::map<int, std::map<int, Fraction::SimpleFraction>> TBasicVariables;
 
 namespace LinearEquations {
